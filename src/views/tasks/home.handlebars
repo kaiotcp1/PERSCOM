@@ -1,0 +1,32 @@
+<a href="/">Voltar</a>
+<h2>Soldier List</h2>
+<div class="container-fluid">
+<table class="table table-hover table-dark ">
+  <thead>
+    <tr>
+      {{!-- <th scope="col">#</th> --}}
+      <th scope="col">Name</th>
+      <th scope="col">Patent</th>
+      <th scope="col">Squad</th>
+      <th scope="col">Weapon</th>
+      <th scope="col">Status</th>
+      <th scope="col">Steam</th>
+
+
+    </tr>
+  </thead>
+  {{#each soldierList}}
+  <tbody>
+    <tr>
+      {{!-- <th scope="row">{{this._id}}</th> --}}
+      <td>{{this.name}}</td>
+      <td>{{this.patent}}</td>
+      <td>{{this.squad}}</td>
+      <td>{{this.weapon}}</td>
+      <td>{{this.status}}</td>
+      <td>{{this.steam}}</td>
+    </tr>
+  </tbody>
+  {{/each}}
+</table>
+</div>
