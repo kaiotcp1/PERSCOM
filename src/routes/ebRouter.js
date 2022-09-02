@@ -7,7 +7,9 @@ const { ebValidate } = require('./validate');
 const { db } = require('../model/ebModel');
 
 
-router.post('/gotai/register', async (req, res) => {
+router.post('/register', async (req, res, next) => {
+    console.log(req.body.name);
+
     const { error } = ebValidate(req.body);
     if (error) { return res.status(400).send(error.message) }
 
@@ -27,14 +29,14 @@ router.post('/gotai/register', async (req, res) => {
 
     try {
         const savedSoldier = await soldier.save()
-        res.status(200).send(savedSoldier);
+        res.status(200).redirect(302, '/home');
     } catch (error) {
         res.status(400).json({ error });
     }
 });
 
 
-router.get('/', async (req, res) => {
+router.get('/register', async (req, res) => {
     res.render('tasks/register', { title: 'Register' });
 });
 

@@ -4,6 +4,7 @@ const ebRouter = require('./routes/ebRouter');
 const hbs = require('express-handlebars');
 const express = require('express');
 const path = require('path')
+app.use(express.urlencoded({ extended: false }));
 
 
 // Template engine
