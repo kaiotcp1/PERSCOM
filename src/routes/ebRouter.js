@@ -41,13 +41,12 @@ router.get('/register', async (req, res) => {
 });
 
 
-
-
 router.get('/home', async (req, res) => {
     const soldierList = await Eb.find()
         .lean()
         .then(soldierList => res.render('tasks/home', { soldierList, title: 'Gotai'  }));
 });
+
 
 
 
@@ -78,7 +77,6 @@ router.get('/list/:id', async (req, res) => {
 });
 
 
-
 router.put('/update/:id', async (req, res) => {
     try {
         const soldier = await Eb.findByIdAndUpdate(req.params.id, req.body)
@@ -94,19 +92,15 @@ router.put('/update/:id', async (req, res) => {
 });
 
 
-
-router.delete('/delete/:id', async (req, res) => {
-    const soldier = await Eb.findById(req.params.id)
-    console.log(soldier)
-    if (!soldier) {
-        res.status(404).json({
-            msg: "Soldier not Found !"
-        })
-    }
-    await soldier.remove()
-    res.status(200).json({
-        msg: "Successfully removed soldier !"
-    })
+router.post('/delete', async (req, res) => {
+    const data = req.body;
+    const soldier = await Eb.findByIdAndRemove(data.id)
+    console.log(soldier)    
+        if(!soldier) {
+            res.status(404).json({ msg: "Soldier id not exists !"})
+        } else {
+            res.status(200).redirect(302, '/home');
+        }
 });
 
 module.exports = router;

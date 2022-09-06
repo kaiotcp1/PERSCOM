@@ -1,32 +1,47 @@
 <a href="/">Voltar</a>
 <h2>Soldier List</h2>
 <div class="container-fluid">
-<table class="table table-hover table-dark ">
-  <thead>
-    <tr>
-      {{!-- <th scope="col">#</th> --}}
-      <th scope="col">Name</th>
-      <th scope="col">Patent</th>
-      <th scope="col">Squad</th>
-      <th scope="col">Weapon</th>
-      <th scope="col">Status</th>
-      <th scope="col">Steam</th>
+  <table class="table table-hover table-dark ">
+    <thead>
+      <tr>
+        {{!-- <th scope="col">#</th> --}}
+        <th scope="col">Name</th>
+        <th scope="col">Patent</th>
+        <th scope="col">Squad</th>
+        <th scope="col">Weapon</th>
+        <th scope="col">Status</th>
+        <th scope="col">Steam</th>
+        <th scope="col">Remover</th>
+        <th scope="col">Editar</th>
 
 
-    </tr>
-  </thead>
-  {{#each soldierList}}
-  <tbody>
-    <tr>
-      {{!-- <th scope="row">{{this._id}}</th> --}}
-      <td>{{this.name}}</td>
-      <td><img src="img/patents/{{this.patent}}.png" style="width: 35px" alt="patentes"></td>
-      <td>{{this.squad}}</td>
-      <td><img src="img/weapons/{{this.weapon}}.png" style="width: 40px" alt="weapon"></td>
-      <td style="color: green">{{this.status}}</td>
-      <td>{{this.steam}}</td>
-    </tr>
-  </tbody>
-  {{/each}}
-</table>
+
+
+      </tr>
+    </thead>
+    {{#each soldierList}}
+    <tbody>
+      <tr>
+        {{!-- <th scope="row">{{this._id}}</th> --}}
+        <td><a href="/{{this._id}}">{{this.name}}</a></td>
+        <td><img src="img/patents/{{this.patent}}.png" style="width: 35px" alt="patentes"></td>
+        <td>{{this.squad}}</td>
+        <td><img src="img/weapons/{{this.weapon}}.png" style="width: 40px" alt="weapon"></td>
+        <td style="color: green">{{this.status}}</td>
+        <td>{{this.steam}}</td>
+        <td actions-column>
+          <form action="exercito/delete" method="POST">
+            {{!-- <a href="/delete/{{this._id}}"><button>Teste</button></a> --}}
+            <input type="hidden" name="id" value="{{this._id}}">
+            <input type="submit" class="btn btn-danger" value="Remover">
+          </form>
+        </td>
+        <td>
+            <a href="exercito/update" class="btn btn-primary">Editar</a>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+    {{/each}}
+  </table>
 </div>
