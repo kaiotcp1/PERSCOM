@@ -4,7 +4,7 @@ const ebValidate = (data) => {
     
     const Schema = Joi.object({
         name: Joi.string().required().min(4).max(30),
-        patent: Joi.string().required().min(4).max(30),
+        patent: Joi.string().required(),
         squad: Joi.string().required().min(4).max(30),
         weapon: Joi.string().required().min(4).max(50),
         status: Joi.string().required().min(4).max(30),

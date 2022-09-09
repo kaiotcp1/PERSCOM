@@ -1,7 +1,5 @@
-<a href="/">Voltar</a>
-<h2>Soldier List</h2>
-<div class="container-fluid">
-  <table class="table table-hover table-dark ">
+<div class="">
+  <table class="table table-hover table-dark">
     <thead>
       <tr>
         {{!-- <th scope="col">#</th> --}}
@@ -13,10 +11,6 @@
         <th scope="col">Steam</th>
         <th scope="col">Remover</th>
         <th scope="col">Editar</th>
-
-
-
-
       </tr>
     </thead>
     {{#each soldierList}}
@@ -37,8 +31,12 @@
           </form>
         </td>
         <td>
-            <a href="exercito/update" class="btn btn-primary">Editar</a>
+          <form action="/update" method="GET">
+            {{!-- <a href="/delete/{{this._id}}"><button>Teste</button></a> --}}
+            <input type="hidden" name="id" value="{{this._id}}">
+            <input type="submit" class="btn btn-primary" value="Editar">
           </form>
+            {{!-- <a href="/update" class="btn btn-primary">Editar</a> --}}
         </td>
       </tr>
     </tbody>

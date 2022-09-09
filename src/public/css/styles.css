@@ -1,11 +1,31 @@
-/* *{
-    background: rgba(0, 0, 0, 0.9);
-} */
-
+/* 
 label {
     color: black;
+} */
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+#patentimage {
+    height: 30px;
+
 }
 
 .btn {
     width: 100px;
 }
+
+#menu {
+    height: 100vh;
+}
+
+/* #main {
+    flex-wrap:wrap-reverse;
+    flex-grow: 4;
+} */

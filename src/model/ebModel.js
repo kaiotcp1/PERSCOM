@@ -11,9 +11,6 @@ const ebSchema = mongoose.Schema({
     patent: {
         type: String,
         required: true,
-        minglenght: 4,
-        maxlenght: 30,
-        default: 'recruta',
     },
 
     squad: {
